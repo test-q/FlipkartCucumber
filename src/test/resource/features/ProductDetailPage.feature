@@ -48,7 +48,6 @@ Feature:  Product details page Test
  When Click on More Offer link
  Then All the available offers are visible.
  
- 
  Scenario: Non logged in user try to add product to wishlist
  Given Browser is invoked.
  And Non logged in user on a product detail page

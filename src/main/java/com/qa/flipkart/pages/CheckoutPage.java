@@ -1,6 +1,8 @@
 package com.qa.flipkart.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import com.qa.flipkart.utils.ConstantUtil;
 import com.qa.flipkart.utils.ElementUtils;
@@ -12,18 +14,25 @@ public class CheckoutPage {
 	ElementUtils eleUtil;
 	Scenario scenario;
 	
+	//Constructor
 	public CheckoutPage(WebDriver driver, Scenario scenario ) {
 		this.driver = driver;
 		this.scenario = scenario;
 		eleUtil = new ElementUtils(driver);
 	}
-		
-	public String getCheckoutPageURL() {
-		if(eleUtil.waitForUrl(ConstantUtil.CHECKOUT_URL, 10)) {
-			return  eleUtil.doGetCurrentUrlPage();
+	
+	//By Locator
+	private By paymentOption = By.xpath("(//span[@class='_1aULyb'])[last()]");
+	
+	//Actions
+	public boolean isPaymentOptionVisible() {
+		boolean flag = false;
+		if(eleUtil.doIsDisplayed(paymentOption)) {
+			flag = true;
 		}
-		return null;	
+		return flag;	
 	}
+
 
 
 }

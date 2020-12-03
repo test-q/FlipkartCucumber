@@ -71,10 +71,6 @@ public class MyCartPage extends BaseTest{
 		return iCount;
 	}
 	
-	public boolean isPlaceOrderButtonDisplay() {
-		return eleUtil.doIsDisplayed(placeOrderbutton);
-	}
-	
 	public void clickOnProductName() {
 		eleUtil.doClick(productName);
 	}
