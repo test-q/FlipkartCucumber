@@ -2,9 +2,6 @@ package com.qa.flipkart.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
-import com.qa.flipkart.utils.ConstantUtil;
 import com.qa.flipkart.utils.ElementUtils;
 
 import io.cucumber.java.Scenario;
