@@ -52,13 +52,14 @@ public class ProductDetailPageStepDef extends BaseTest{
 		boolean flag = globalTest.getProductDetailPage().getProductPage();
 		Assert.assertEquals(true, flag);
 		scenario.write("User On product Detail Page.");
+		scenario.write("Page URL: " + ConstantUtil.PRODUCTDETAILPAGE_URL);
 	}
 
 	@Then("Validate page title.")
 	public void validate_page_title() {
 		String title = globalTest.getProductDetailPage().getProductPageTitle();
-		Assert.assertEquals(ConstantUtil.PRODUCTDETAILPAGE_TITLE, title);
 		scenario.write("Page Title: " +title);
+		Assert.assertEquals(ConstantUtil.PRODUCTDETAILPAGE_TITLE, title);
 	}
 
 	@Given("Non logged in user on a product detail page")
@@ -108,8 +109,8 @@ public class ProductDetailPageStepDef extends BaseTest{
 	
 	@Then("User redirected to Checkout up page.")
 	public void user_redirected_to_Checkout_up_page() {
-		String checkoutpageUrl = globalTest.getCheckoutPage().getCheckoutPageURL();
-		Assert.assertEquals(ConstantUtil.CHECKOUT_URL, checkoutpageUrl);
+		boolean flag = globalTest.getCheckoutPage().isPaymentOptionVisible();
+		Assert.assertEquals(true, flag);
 		scenario.write("User redirected to login page");
 	}
 	
@@ -133,6 +134,7 @@ public class ProductDetailPageStepDef extends BaseTest{
 		globalTest.getProductDetailPage().getProductColor();
 		globalTest.getProductDetailPage().getProductSize();
 		globalTest.getProductDetailPage().clickAddToCart();
+		globalTest.getMyCartpage().waitForPlaceOrderButton();
 		globalTest.getMyCartpage().clickOnProductName();
 		globalTest.getProductDetailPage().waitForBuyNow();
 		globalTest.getProductDetailPage().getProductColor();
